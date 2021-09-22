@@ -1,0 +1,28 @@
+name: 'LeanIX k8s run'
+description: 'Perform krane run on kubernetes cluster'
+inputs:
+  namespace:
+    description: 'kubernetes namespace'
+    required: true
+  template:
+    description: 'Name of the PodTemplate to run.'
+    required: true
+  timeout:
+    description: 'Global timeout for the krane run command. ie. 30m, 1h, ...'
+    required: true
+    default: '5m'
+  environment:
+    description: 'The cluster environment, e.g. test or prod'
+    required: true
+    default: 'test'
+  region:
+    description: 'The region defining the cluster to deploy to, e.g. westeurope or australiaeast. Leave empty to deploy to all regions.'
+    required: false
+  environmentVariables:
+    description: 'Comma separated list of variables to pass to krane run. ie: VAR=val,FOO=bar'
+    required: false
+runs:
+  using: 'docker'
+  image: 'docker://leanixacrpublic.azurecr.io/k8s-deploy:latest'
+  args:
+    - /usr/bin/run.sh
