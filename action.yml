@@ -21,6 +21,10 @@ inputs:
   environmentVariables:
     description: 'Comma separated list of variables to pass to krane run. ie: VAR=val,FOO=bar'
     required: false
+  verifyResult:
+    description: 'Wait for completion and verify pod success'
+    required: true
+    default: 'true'
 runs:
   using: 'docker'
   image: 'docker://leanixacrpublic.azurecr.io/k8s-deploy:latest'
