@@ -29,6 +29,7 @@ A simple run definition would look like:
 |environment|yes|test|The cluster environment to use (e.g. test or prod)|
 |region|no|-|The region defining the cluster to deploy to, e.g. westeurope or australiaeast. Leave empty to deploy to all regions.|
 |environmentVariables|no|-|Comma separated list of variables to pass to krane run. ie: VAR=val,FOO=bar|
+|verifyResult|yes|'true'|Wait for completion and verify pod success|
 
 ### Configure deployment target
 
