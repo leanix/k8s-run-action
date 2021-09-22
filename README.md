@@ -18,18 +18,17 @@ A simple run definition would look like:
   uses: leanix/k8s-run-action@master
   with:
     namespace: myapp1
-    environment: test
     template: mypodtemplate
 ```
 
 | input | required | default | description |
 |-------|----------|---------|-------------|
 |namespace|yes|-|The kubernetes namespace to use.|
+|template|yes|-|Name of the PodTemplate to run.|
+|timeout|yes|5m|Global timeout for the krane run command. ie. 30m, 1h, ...|
 |environment|yes|test|The cluster environment to use (e.g. test or prod)|
-|template_directory|yes|k8s-deployment|Directory that contains the manifests to deploy. [see](#kubernetes-manifests)|
-|vault_secret_keys|no|-|List of Azure Key Vault secret names to inject as k8s secrets. [see](#kubernetes-secrets-from-azure-key-vault)|
-|dry_run|no|-|Set to true for dry run mode: Only validate and render the templates, not actually deploying to any cluster|
-|disable_validation|no|-|Set to true for disabling the validate and render the templates option during the deployment.|
+|region|no|-|The region defining the cluster to deploy to, e.g. westeurope or australiaeast. Leave empty to deploy to all regions.|
+|environmentVariables|no|-|Comma separated list of variables to pass to krane run. ie: VAR=val,FOO=bar|
 
 ### Configure deployment target
 

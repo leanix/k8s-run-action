@@ -5,11 +5,12 @@ inputs:
     description: 'kubernetes namespace'
     required: true
   template:
-    description: 'Name of the podtemplate to run'
+    description: 'Name of the PodTemplate to run.'
     required: true
   timeout:
     description: 'Global timeout for the krane run command. ie. 30m, 1h, ...'
     required: true
+    default: '5m'
   environment:
     description: 'The cluster environment, e.g. test or prod'
     required: true
